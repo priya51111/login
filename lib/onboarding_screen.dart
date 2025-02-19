@@ -22,7 +22,7 @@ class OnboardingScreen extends StatelessWidget {
               ),
             ),
           ),
-                    Positioned(
+          Positioned(
             top: -171,
             left: 23,
             child: Container(
@@ -48,17 +48,16 @@ class OnboardingScreen extends StatelessWidget {
                     height: 422,
                     width: 385,
                   ),
-
                   const Text(
                     "Discover Your\nDream Job here",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 34,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w600,
                       color: Color(0xFF1F41BB),
                     ),
                   ),
-                  const SizedBox(height: 12), 
+                  const SizedBox(height: 12),
                   const Text(
                     "Explore all the existing job roles based on your interest and study major",
                     textAlign: TextAlign.center,
@@ -73,7 +72,7 @@ class OnboardingScreen extends StatelessWidget {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                            context.go('/login');
+                          context.go('/login');
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF1F41BB),
@@ -93,7 +92,7 @@ class OnboardingScreen extends StatelessWidget {
                       const SizedBox(width: 16),
                       TextButton(
                         onPressed: () {
-                            context.go('/createaccount');
+                          context.go('/createaccount');
                         },
                         child: const Text(
                           "Register",
