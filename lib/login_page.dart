@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -7,7 +8,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         body: Stack(
           children: [
             Positioned(
@@ -17,7 +18,7 @@ class LoginPage extends StatelessWidget {
                 width: 600,
                 height: 600,
                 decoration: BoxDecoration(
-                  color: Color(0xFFF8F9FF), 
+                  color: Theme.of(context).colorScheme.primaryContainer,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -31,8 +32,41 @@ class LoginPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: Color(0xFFF8F9FF), 
+                    color: Theme.of(context).colorScheme.surfaceContainerLow,
                     width: 3,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 590,
+              left: -262,
+              child: Container(
+                width: 372,
+                height: 372,
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.surfaceContainerLow,
+                    width: 2,
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 590,
+              left: -217.48,
+              child: Transform.rotate(
+                angle: -50,
+                child: Container(
+                  width: 372,
+                  height: 372,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    border: Border.all(
+                      color: Theme.of(context).colorScheme.surfaceContainerLow,
+                      width: 2,
+                    ),
                   ),
                 ),
               ),
@@ -47,30 +81,46 @@ class LoginPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Text(
+                        Text(
                           "Login here",
-                          style: TextStyle(
-                              fontSize: 35,
-                              color: Color(0xFF1F41BB),
-                              fontWeight: FontWeight.w700),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 24),
                         ),
                         const SizedBox(height: 8),
-                        const Text(
+                        Text(
                           "Welcome back you've\n been missed",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(
+                                color: Theme.of(context).colorScheme.onSurface,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 12,
+                              ),
                         ),
                         const SizedBox(height: 32),
                         FormBuilderTextField(
                           name: "email",
                           decoration: InputDecoration(
                             hintText: "Email",
+                            hintStyle: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400),
                             filled: true,
-                            fillColor: Color(0xFFF1F4FF),
+                            fillColor: Theme.of(context)
+                                .colorScheme
+                                .surfaceContainerLow,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                               borderSide: BorderSide.none,
@@ -82,7 +132,8 @@ class LoginPage extends StatelessWidget {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                               borderSide: BorderSide(
-                                  color: Color(0xFF1F41BB), width: 2),
+                                  color: Theme.of(context).colorScheme.primary,
+                                  width: 2),
                             ),
                           ),
                           keyboardType: TextInputType.emailAddress,
@@ -97,21 +148,29 @@ class LoginPage extends StatelessWidget {
                           decoration: InputDecoration(
                             filled: true,
                             hintText: 'Password',
-                            fillColor: Color(0xFFF1F4FF),
+                               hintStyle: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400),
+                            fillColor: Theme.of(context)
+                                .colorScheme
+                                .surfaceContainerLow,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide
-                                  .none,
+                              borderSide: BorderSide.none,
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide
-                                  .none, 
+                              borderSide: BorderSide.none,
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                               borderSide: BorderSide(
-                                  color: Color(0xFF1F41BB),
+                                  color: Theme.of(context).colorScheme.primary,
                                   width: 2),
                             ),
                           ),
@@ -125,10 +184,14 @@ class LoginPage extends StatelessWidget {
                           alignment: Alignment.centerRight,
                           child: Text(
                             'Forgot your password?',
-                            style: TextStyle(
-                              color: Color(0xFF1F41BB),
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineSmall
+                                ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 13),
                           ),
                         ),
                         const SizedBox(
@@ -137,42 +200,45 @@ class LoginPage extends StatelessWidget {
                         SizedBox(
                           width: double.infinity,
                           height: 50,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              if (_formKey.currentState?.saveAndValidate() ??
-                                  false) {
-                                debugPrint(
-                                    "Form Valid: ${_formKey.currentState?.value}");
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF1F41BB),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: 50,
+                            child: FilledButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Sign in ",
                               ),
-                            ),
-                            child: const Text(
-                              "Sign In",
-                              style:
-                                  TextStyle(fontSize: 16, color: Colors.white),
                             ),
                           ),
                         ),
                         const SizedBox(height: 30),
-                        const Text(
-                          "Create new  account",
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                        TextButton(
+                          onPressed: () {
+                            context.go('/createaccount');
+                          },
+                          child: Text(
+                            "Create new  account",
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 12,
+                                ),
+                          ),
                         ),
                         const SizedBox(height: 70),
-                        const Text(
+                        Text(
                           "Or continue with",
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Color(0xFF1F41BB),
-                              fontWeight: FontWeight.bold),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13),
                         ),
                         const SizedBox(height: 16),
                         Row(

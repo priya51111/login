@@ -7,7 +7,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Stack(
         children: [
           Positioned(
@@ -17,7 +17,7 @@ class OnboardingScreen extends StatelessWidget {
               width: 635,
               height: 635,
               decoration: BoxDecoration(
-                color: Color(0xFFF8F9FF),
+                color: Theme.of(context).colorScheme.secondaryFixed,
                 shape: BoxShape.circle,
               ),
             ),
@@ -31,8 +31,41 @@ class OnboardingScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: Color(0xFFF8F9FF),
+                  color: Theme.of(context).colorScheme.surfaceContainerLow,
                   width: 3,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 590,
+            left: -262,
+            child: Container(
+              width: 372,
+              height: 372,
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.surfaceContainerLow,
+                  width: 2,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 590,
+            left: -217.48,
+            child: Transform.rotate(
+              angle: -50,
+              child: Container(
+                width: 372,
+                height: 372,
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.surfaceContainerLow,
+                    width: 2,
+                  ),
                 ),
               ),
             ),
@@ -43,50 +76,43 @@ class OnboardingScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    'assets/welcome image.png',
-                    height: 422,
-                    width: 385,
-                  ),
-                  const Text(
-                    "Discover Your\nDream Job here",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 34,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF1F41BB),
+                  SizedBox(
+                    height: MediaQuery.sizeOf(context).height * 0.40,
+                    width: MediaQuery.sizeOf(context).width * 0.90,
+                    child: Image.asset(
+                      'assets/welcome image.png',
+                      height: 422,
+                      width: 385,
                     ),
+                  ),
+                  Text(
+                    'Discover Your\nDream Job here',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
                   const SizedBox(height: 12),
-                  const Text(
+                  Text(
                     "Explore all the existing job roles based on your interest and study major",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black54,
-                    ),
+                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurface,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                        ),
                   ),
-                  const SizedBox(height: 32),
+                  const SizedBox(height: 62),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ElevatedButton(
+                      FilledButton(
                         onPressed: () {
                           context.go('/login');
                         },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF1F41BB),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 32,
-                            vertical: 12,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        child: const Text(
+                        child: Text(
                           "Login",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ),
                       const SizedBox(width: 16),
@@ -94,13 +120,16 @@ class OnboardingScreen extends StatelessWidget {
                         onPressed: () {
                           context.go('/createaccount');
                         },
-                        child: const Text(
+                        child: Text(
                           "Register",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(
+                                color: Theme.of(context).colorScheme.onSurface,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                              ),
                         ),
                       ),
                     ],

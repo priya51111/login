@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:go_router/go_router.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({super.key});
@@ -15,7 +16,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Stack(
         children: [
           Positioned(
@@ -25,7 +26,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               width: 635,
               height: 635,
               decoration: BoxDecoration(
-                color: Color(0xFFF8F9FF),
+                color: Theme.of(context).colorScheme.primaryContainer,
                 shape: BoxShape.circle,
               ),
             ),
@@ -39,8 +40,40 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: Color(0xFFF8F9FF), 
+                  color: Theme.of(context).colorScheme.surfaceContainerLow,
                   width: 3,
+                ),
+              ),
+            ),
+          ),   Positioned(
+            top: 590,
+            left: -262,
+            child: Container(
+              width: 372,
+              height: 372,
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.surfaceContainerLow,
+                  width: 2,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 590,
+            left: -217.48,
+            child: Transform.rotate(
+              angle: -50,
+              child: Container(
+                width: 372,
+                height: 372,
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.surfaceContainerLow,
+                    width: 2,
+                  ),
                 ),
               ),
             ),
@@ -55,32 +88,42 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text(
+                      Text(
                         "Create Account",
-                        style: TextStyle(
-                            fontSize: 35,
-                            color: Color(0xFF1F41BB),
-                            fontWeight: FontWeight.bold),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 24),
                       ),
                       const SizedBox(height: 8),
-                      const Text(
+                      Text(
                         "Create an account so you can explore all the\n existing jobs",
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w100,
-                          color: Colors.black,
-                        ),
+                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                              color: Theme.of(context).colorScheme.onSurface,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                            ),
                       ),
                       const SizedBox(height: 32),
-
                       FormBuilderTextField(
                         name: "email",
                         decoration: InputDecoration(
                           hintText: "Email",
+                             hintStyle: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400),
                           filled: true,
-                          
-                          fillColor: Color(0xFFF1F4FF),
+                          fillColor:
+                              Theme.of(context).colorScheme.surfaceContainerLow,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide.none,
@@ -91,8 +134,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide:
-                                BorderSide(color: Color(0xFF1F41BB), width: 2),
+                            borderSide: BorderSide(
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2),
                           ),
                         ),
                         keyboardType: TextInputType.emailAddress,
@@ -101,29 +145,35 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             : null,
                       ),
                       const SizedBox(height: 16),
-
                       FormBuilderTextField(
                         name: "password",
                         obscureText: true,
                         decoration: InputDecoration(
                           filled: true,
                           hintText: 'Password',
-                          fillColor: Color(0xFFF1F4FF),
+                             hintStyle: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400),
+                          fillColor:
+                              Theme.of(context).colorScheme.surfaceContainerLow,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide:
-                                BorderSide.none, 
+                            borderSide: BorderSide.none,
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide
-                                .none,
+                            borderSide: BorderSide.none,
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(
-                                color: Color(0xFF1F41BB),
-                                width: 2), 
+                                color: Theme.of(context).colorScheme.primary,
+                                width: 2),
                           ),
                         ),
                         validator: (value) => value == null || value.length < 6
@@ -131,29 +181,34 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                             : null,
                       ),
                       const SizedBox(height: 16),
-
-                      // Confirm Password Field
                       FormBuilderTextField(
                         name: "confirm_password",
                         obscureText: true,
                         decoration: InputDecoration(
                           hintText: "Confirm Password",
                           filled: true,
-                          fillColor: Color(0xFFF1F4FF),
+                             hintStyle: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400),
+                          fillColor:
+                              Theme.of(context).colorScheme.surfaceContainerLow,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide:
-                                BorderSide.none,
+                            borderSide: BorderSide.none,
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide
-                                .none, 
+                            borderSide: BorderSide.none,
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                             borderSide: BorderSide(
-                                color: Color(0xFF1F41BB),
+                                color: Theme.of(context).colorScheme.primary,
                                 width: 2),
                           ),
                         ),
@@ -169,47 +224,43 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         },
                       ),
                       const SizedBox(height: 24),
-
                       SizedBox(
                         width: double.infinity,
                         height: 50,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            if (_formKey.currentState?.saveAndValidate() ??
-                                false) {
-                              debugPrint(
-                                  "Form Valid: ${_formKey.currentState?.value}");
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF1F41BB),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          child: const Text(
-                            "Sign up",
-                            style: TextStyle(fontSize: 16, color: Colors.white),
+                        child: FilledButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Login",
                           ),
                         ),
                       ),
-                      const SizedBox(height: 30),
-
-                      const Text(
-                        "Already have an account",
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w100),
+                      const SizedBox(height: 25),
+                      TextButton(
+                        onPressed: () {
+                          context.go('/login');
+                        },
+                        child: Text(
+                          "Already have an account",
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(
+                                color: Theme.of(context).colorScheme.onSurface,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 12,
+                              ),
+                        ),
                       ),
                       const SizedBox(height: 70),
-
-                      const Text(
+                      Text(
                         "Or continue with",
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Color(0xFF1F41BB),
-                            fontWeight: FontWeight.bold),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 13),
                       ),
                       const SizedBox(height: 16),
                       Row(
@@ -239,7 +290,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
       height: 35,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Color(0xFFECECEC),
+        color: Theme.of(context).colorScheme.surfaceContainerHigh,
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
@@ -257,3 +308,4 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     );
   }
 }
+
