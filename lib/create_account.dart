@@ -45,7 +45,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 ),
               ),
             ),
-          ),   Positioned(
+          ),
+          Positioned(
             top: 590,
             left: -262,
             child: Container(
@@ -113,14 +114,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         name: "email",
                         decoration: InputDecoration(
                           hintText: "Email",
-                             hintStyle: Theme.of(context)
-                                .textTheme
-                                .labelLarge
-                                ?.copyWith(
-                                    color:
-                                        Theme.of(context).colorScheme.onSurface,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400),
+                          hintStyle: Theme.of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400),
                           filled: true,
                           fillColor:
                               Theme.of(context).colorScheme.surfaceContainerLow,
@@ -151,14 +152,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         decoration: InputDecoration(
                           filled: true,
                           hintText: 'Password',
-                             hintStyle: Theme.of(context)
-                                .textTheme
-                                .labelLarge
-                                ?.copyWith(
-                                    color:
-                                        Theme.of(context).colorScheme.onSurface,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400),
+                          hintStyle: Theme.of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400),
                           fillColor:
                               Theme.of(context).colorScheme.surfaceContainerLow,
                           border: OutlineInputBorder(
@@ -187,14 +188,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         decoration: InputDecoration(
                           hintText: "Confirm Password",
                           filled: true,
-                             hintStyle: Theme.of(context)
-                                .textTheme
-                                .labelLarge
-                                ?.copyWith(
-                                    color:
-                                        Theme.of(context).colorScheme.onSurface,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400),
+                          hintStyle: Theme.of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400),
                           fillColor:
                               Theme.of(context).colorScheme.surfaceContainerLow,
                           border: OutlineInputBorder(
@@ -230,7 +231,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         child: FilledButton(
                           onPressed: () {},
                           child: Text(
-                            "Login",
+                            "Sign up",
                           ),
                         ),
                       ),
@@ -290,14 +291,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
       height: 35,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surfaceContainerHigh,
+        color: Theme.of(context).colorScheme.onSecondaryContainer,
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 4,
-          ),
-        ],
+    
       ),
       child: Image.asset(
         assetPath,
@@ -308,4 +304,3 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     );
   }
 }
-

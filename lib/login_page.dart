@@ -2,12 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
-  final _formKey = GlobalKey<FormBuilderState>();
+
+class LogInPage extends StatefulWidget {
+  const LogInPage({super.key});
+
   @override
+  State<LogInPage> createState() => _LogInPageState();
+}
+
+class _LogInPageState extends State<LogInPage> {
+   final _formKey = GlobalKey<FormBuilderState>();
+  @override
+  
   Widget build(BuildContext context) {
-    return Scaffold(
+    return   Scaffold(
         backgroundColor: Theme.of(context).colorScheme.surface,
         body: Stack(
           children: [
@@ -18,7 +26,7 @@ class LoginPage extends StatelessWidget {
                 width: 600,
                 height: 600,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primaryContainer,
+                   color: Theme.of(context).colorScheme.secondaryFixed,
                   shape: BoxShape.circle,
                 ),
               ),
@@ -155,7 +163,7 @@ class LoginPage extends StatelessWidget {
                                     color:
                                         Theme.of(context).colorScheme.onSurface,
                                     fontSize: 14,
-                                    fontWeight: FontWeight.w400),
+                                    fontWeight: FontWeight.w400), 
                             fillColor: Theme.of(context)
                                 .colorScheme
                                 .surfaceContainerLow,
@@ -258,17 +266,17 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ],
-        ));
+        )
+        );
   }
-}
-
+  
 Widget socialButton(String assetPath) {
   return Container(
     width: 45,
     height: 35,
     padding: const EdgeInsets.all(10),
     decoration: BoxDecoration(
-      color: Color(0xFFECECEC),
+        color: Theme.of(context).colorScheme.onSecondaryContainer,
       borderRadius: BorderRadius.circular(8),
       boxShadow: [
         BoxShadow(
@@ -285,3 +293,5 @@ Widget socialButton(String assetPath) {
     ),
   );
 }
+}
+

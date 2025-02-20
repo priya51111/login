@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       ),
       GoRoute(
         path: '/login',
-        builder: (context, state) => LoginPage(),
+        builder: (context, state) => LogInPage(),
       ),
       GoRoute(
         path: '/createaccount',
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       routerConfig: _router,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: uiHelper.themeData("LIGHT"),
+      theme: uiHelper.themeData("DARK "),
     );
   }
 }
