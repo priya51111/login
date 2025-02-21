@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:login/common/constans.dart';
 import 'package:login/common/ui_helper.dart';
-import 'package:login/create_account.dart';
+
+import 'package:login/createprofile/view/create_profile_page.dart';
+import 'package:login/home_page.dart';
 import 'package:login/login/views/login_page.dart';
 import 'package:login/onboarding/view/onboarding_page.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -27,7 +29,11 @@ class MyApp extends StatelessWidget {
       ),
       GoRoute(
         path: '/createaccount',
-        builder: (context, state) => CreateAccountScreen(),
+        builder: (context, state) => CreateProfilePage(),
+      ),
+      GoRoute(
+        path: '/homepage',
+        builder: (context, state) => HomePage(),
       ),
     ],
   );
