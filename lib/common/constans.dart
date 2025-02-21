@@ -1,4 +1,9 @@
+// ignore_for_file: constant_identifier_names
+
+import 'package:login/common/theme_config.dart';
+
 class Constants {
-  // ignore: constant_identifier_names
-  static const String FONT_POPPINS = "Poppins";  
+  static const themeConfig = ThemeConfig();
+
+  static const String FONT_POPPINS = "Poppins";
 }

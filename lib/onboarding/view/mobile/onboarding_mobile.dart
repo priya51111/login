@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({super.key});
+class OnboardingMobile extends StatelessWidget {
+  const OnboardingMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -122,10 +122,7 @@ class OnboardingScreen extends StatelessWidget {
                         },
                         child: Text(
                           "Register",
-                          style: Theme.of(context)
-                              .textTheme
-                              .labelLarge
-                              ?.copyWith(
+                          style: Theme.of(context).textTheme.labelLarge?.copyWith(
                                 color: Theme.of(context).colorScheme.onSurface,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,

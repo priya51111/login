@@ -6,13 +6,11 @@ class UiHelper {
 
   ThemeData themeData(String themeMode) {
     return ThemeData(
-      brightness: themeMode == "LIGHT" ? Brightness.light : Brightness.dark,
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
         seedColor: const Color(0xFF1F41BB),
-        brightness: themeMode == "LIGHT" ? Brightness.light : Brightness.dark,
+        brightness: themeMode == Constants.themeConfig.LIGHT ? Brightness.light : Brightness.dark,
       ),
-      
       filledButtonTheme: FilledButtonThemeData(
         style: ButtonStyle(
           shape: WidgetStateProperty.all(
@@ -31,7 +29,6 @@ class UiHelper {
           ),
         ),
       ),
-      
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
           textStyle: WidgetStateProperty.all(
