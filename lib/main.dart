@@ -4,6 +4,7 @@ import 'package:login/common/constans.dart';
 import 'package:login/common/ui_helper.dart';
 
 import 'package:login/createprofile/view/create_profile_page.dart';
+import 'package:login/grid/pluto_grid.dart';
 import 'package:login/home_page.dart';
 import 'package:login/login/views/login_page.dart';
 import 'package:login/onboarding/view/onboarding_page.dart';
@@ -17,8 +18,12 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
 
   final GoRouter _router = GoRouter(
-    initialLocation: '/onboard',
+    initialLocation: '/plutogrid',
     routes: [
+       GoRoute(
+        path: '/plutogrid',
+        builder: (context, state) => StudentTable(),
+      ),
       GoRoute(
         path: '/onboard',
         builder: (context, state) => OnboardingPage(),

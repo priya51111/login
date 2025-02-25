@@ -40,6 +40,7 @@ dependencies:
   flutter_bloc: ^9.0.0
   equatable: ^2.0.7
   logger: ^2.5.0
+  pluto_grid: ^8.0.0
 
 dev_dependencies:
   flutter_test:

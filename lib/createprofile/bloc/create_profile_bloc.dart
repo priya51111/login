@@ -21,8 +21,7 @@ class CreateProfileBloc extends Bloc<CreateProfileEvent,  CreateProfileState> {
     Emitter<CreateProfileState> emit,
   ) async {
     try {
-      // Log::Format
-      // filename::functionName::Object / variable name: $value
+  
       log.d('CreateProfilePageBloc :: _onInitializeCreateProfileToState :: Event: $event');
       emit(state.copyWith(status: CreateProfileStatus.loading));
       emit(state.copyWith(status: CreateProfileStatus.loaded));
@@ -50,7 +49,7 @@ class CreateProfileBloc extends Bloc<CreateProfileEvent,  CreateProfileState> {
     try {
       log.d("CreateProfilePageBloc::_onSubmitProfile::$event");
       await Future.delayed(Duration(seconds: 1));
-      // handeled via api.
+  
       if (state.createProfileReqModel?.email == "dhanapriya511@gmail.com" && state.createProfileReqModel?.password == "123456") {
         emit(state.copyWith(status: CreateProfileStatus.success, message: "Login Successfull."));
       } else {
